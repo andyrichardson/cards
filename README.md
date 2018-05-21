@@ -1,3 +1,6 @@
+[![CircleCI](https://img.shields.io/circleci/project/github/andyrichardson/cards.svg)](https://circleci.com/gh/andyrichardson/cards/)
+[![Issues](https://img.shields.io/github/issues/andyrichardson/cards.svg)](https://circleci.com/gh/andyrichardson/cards/)
+
 # Cards
 
 ## Requirements
