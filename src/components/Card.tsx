@@ -1,3 +1,4 @@
+import { observer, inject } from 'mobx-react';
 import * as React from 'react';
 import styled from 'styled-components';
 import { DeckStore, ThemeStore } from '../stores';
@@ -21,6 +22,9 @@ interface CardState {
   visible: boolean;
 }
 
+@inject('deckStore')
+@inject('themeStore')
+@observer
 export class Card extends React.Component<CardProps, CardState> {
   public props: CardProps;
   public state: CardState;
