@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { Theme as T } from '../config';
+import { DeckStore, ThemeStore } from '../stores';
 import { Rank, Suit } from '../typings';
 
 const SuitImages = {
@@ -13,6 +13,8 @@ const SuitImages = {
 interface CardProps {
   rank: Rank;
   suit: Suit;
+  deckStore: DeckStore;
+  themeStore: ThemeStore;
 }
 
 interface CardState {
@@ -38,7 +40,9 @@ export class Card extends React.Component<CardProps, CardState> {
   private get color() {
     const isBlack =
       this.props.suit === Suit.CLUB || this.props.suit === Suit.SPADE;
-    return isBlack ? T.color.black : T.color.red;
+
+    const color = isBlack ? 'black' : 'red';
+    return this.props.themeStore.color[color];
   }
 
   private getCorner(inverted = false) {
