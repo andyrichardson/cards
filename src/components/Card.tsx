@@ -1,26 +1,80 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import heart from './images/heart.svg';
+import { Theme as T } from '../config';
+import { Rank, Suit } from '../typings';
 
-export class Card extends React.Component {
+const SuitImages = {
+  club: require('../images/club.svg'),
+  diamond: require('../images/diamond.svg'),
+  heart: require('../images/heart.svg'),
+  spade: require('../images/spade.svg'),
+};
+
+interface CardProps {
+  rank: Rank;
+  suit: Suit;
+}
+
+interface CardState {
+  visible: boolean;
+}
+
+export class Card extends React.Component<CardProps, CardState> {
+  public props: CardProps;
+  public state: CardState;
+
   public render() {
     return (
       <CardBase>
-        <SvgBase xmlns="http://www.w3.org/2000/svg" width="328" height="510">
-          <TopLeft>
-            <text x="0" y="25" fill="red">
-              K
-            </text>
-            <image x="10" y="20" width="80" height="80" xlinkHref={heart} />
-          </TopLeft>
-
-          <BottomRight>
-            <text x="0" y="25" fill="red" transform="rotate(180, 164, 255)">
-              K
-            </text>
-          </BottomRight>
+        <SvgBase xmlns="http://www.w3.org/2000/svg" viewBox="0, 0, 328, 510">
+          {this.getCorner()}
+          {this.getDescription()}
+          {this.getCorner(true)}
         </SvgBase>
       </CardBase>
+    );
+  }
+
+  private get color() {
+    const isBlack =
+      this.props.suit === Suit.CLUB || this.props.suit === Suit.SPADE;
+    return isBlack ? T.color.black : T.color.red;
+  }
+
+  private getCorner(inverted = false) {
+    const abbreviation = isNaN(parseInt(this.props.rank))
+      ? this.props.rank[0].toUpperCase()
+      : this.props.rank;
+    const transform = inverted ? 'rotate(180, 164, 255)' : '';
+
+    return (
+      <>
+        <text x="5" y="35" fill={this.color} transform={transform}>
+          {abbreviation}
+        </text>
+        <image
+          x="0"
+          y="45"
+          width="32"
+          height="32"
+          xlinkHref={SuitImages[this.props.suit]}
+          fill="red"
+          transform={transform}
+        />
+      </>
+    );
+  }
+
+  private getDescription() {
+    return (
+      <>
+        <text x="164" y="220" textAnchor="middle" fill={this.color}>
+          {this.props.rank} of
+        </text>
+        <text x="164" y="260" textAnchor="middle" fill={this.color}>
+          {this.props.suit.replace(/(?:^|\s)\S/g, a => a.toUpperCase()) + 's'}
+        </text>
+      </>
     );
   }
 }
@@ -30,16 +84,14 @@ const CardBase = styled.div`
   background: #aaa;
   border-radius: 7px;
   padding: 20px;
+
+  min-width: 200px;
 `;
 
 const SvgBase = styled.svg`
   background: #aaa;
   font-family: 'Roboto';
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 500;
-`;
-
-const TopLeft = styled.svg``;
-const BottomRight = styled.svg`
-  transform: rotate(180deg);
+  width: 100%;
 `;
