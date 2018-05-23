@@ -1,11 +1,11 @@
-export const enum Suit {
+export enum Suit {
   CLUB = 'club',
   DIAMOND = 'diamond',
   SPADE = 'spade',
   HEART = 'heart',
 }
 
-export const enum Rank {
+export enum Rank {
   ACE = 'ace',
   TWO = '2',
   THREE = '3',

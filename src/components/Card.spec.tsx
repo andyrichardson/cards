@@ -40,31 +40,3 @@ describe('render', () => {
     expect(testRender.toJSON().type).to.equal('div');
   });
 });
-
-// describe('rendering', () => {
-//   let deckStore: DeckStore;
-//   let themeStore: ThemeStore;
-//   let suit: Suit;
-//   let rank: string;
-
-//   beforeEach(() => {
-//     deckStore = new DeckStore();
-//     themeStore = new ThemeStore();
-//     suit = Suit.CLUB;
-//     rank = 'king';
-//   });
-
-//   it('renders without crashing', () => {
-//     const div = document.createElement('div');
-//     ReactDOM.render(
-//       <Card
-//         themeStore={themeStore}
-//         deckStore={deckStore}
-//         suit={suit}
-//         rank={rank}
-//       />,
-//       div,
-//     );
-//     ReactDOM.unmountComponentAtNode(div);
-//   });
-// });
