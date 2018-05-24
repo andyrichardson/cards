@@ -28,6 +28,13 @@ export class ActionButtons extends React.Component<ActionButtonsProps, any> {
 const ButtonContainer = styled.div``;
 
 const Button = styled.img`
+  opacity: 0.7;
   padding: 20px;
+  transition: opacity 250ms;
   width: 40px;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
 `;
