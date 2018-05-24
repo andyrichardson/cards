@@ -87,7 +87,7 @@ export class Card extends React.Component<CardProps, CardState> {
 
 const CardBase = styled.div`
   display: inline-block;
-  background: #aaa;
+  background: #fff;
   border-radius: 7px;
   padding: 20px;
 
@@ -95,7 +95,6 @@ const CardBase = styled.div`
 `;
 
 const SvgBase = styled.svg`
-  background: #aaa;
   font-family: 'Roboto';
   font-size: 40px;
   font-weight: 500;
