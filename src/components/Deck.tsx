@@ -13,8 +13,12 @@ export class Deck extends React.Component<DeckProps, any> {
   public props: DeckProps;
 
   public render() {
-    return <DeckImage src={require('../images/deck.svg')} />;
+    return (
+      <DeckImage src={require('../images/deck.svg')} onClick={this.draw} />
+    );
   }
+
+  private draw = () => this.props.deckStore.draw();
 }
 
 const DeckImage = styled.img`
