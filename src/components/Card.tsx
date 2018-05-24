@@ -49,7 +49,7 @@ export class Card extends React.Component<CardProps, CardState> {
 
   private getCorner(inverted = false) {
     const abbreviation = isNaN(parseInt(this.props.rank))
-      ? this.props.rank[0].toUpperCase()
+      ? this.props.rank[0]
       : this.props.rank;
     const transform = inverted ? 'rotate(180, 164, 255)' : '';
 
