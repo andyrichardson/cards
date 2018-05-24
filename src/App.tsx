@@ -1,8 +1,8 @@
 import { observer, Provider } from 'mobx-react';
 import * as React from 'react';
+import styled from 'styled-components';
 import { Card, Deck } from './components';
 import { DeckStore, ThemeStore } from './stores';
-import { Rank, Suit } from './typings';
 
 const stores = {
   deckStore: new DeckStore(),
@@ -16,11 +16,22 @@ class App extends React.Component {
       <Provider {...stores}>
         <>
           <Deck />
-          <Card rank={Rank.EIGHT} suit={Suit.HEART} />
+          <Table className="table">
+            {stores.deckStore.table.map((card, index) => (
+              <Card key={index} rank={card.rank} suit={card.suit} />
+            ))}
+          </Table>
         </>
       </Provider>
     );
   }
 }
+
+const Table = styled.div`
+  display: flex;
+  div {
+    margin: 10px;
+  }
+`;
 
 export default App;

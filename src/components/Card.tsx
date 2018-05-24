@@ -91,7 +91,7 @@ const CardBase = styled.div`
   border-radius: 7px;
   padding: 20px;
 
-  min-width: 200px;
+  width: 200px;
 `;
 
 const SvgBase = styled.svg`
