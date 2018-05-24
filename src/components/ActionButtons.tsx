@@ -28,5 +28,6 @@ export class ActionButtons extends React.Component<ActionButtonsProps, any> {
 const ButtonContainer = styled.div``;
 
 const Button = styled.img`
+  padding: 20px;
   width: 40px;
 `;
