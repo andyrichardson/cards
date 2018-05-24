@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import * as React from 'react';
 import * as TestRenderer from 'react-test-renderer';
-import { DeckStore, ThemeStore } from '../stores';
+import { ThemeStore } from '../stores';
 import { Rank, Suit } from '../typings';
 import { Card } from './Card';
 
@@ -12,31 +12,47 @@ describe('construction', () => {
   });
 });
 
-describe('render', () => {
-  let deckStore: DeckStore;
+describe('basic render', () => {
   let themeStore: ThemeStore;
   let suit: Suit;
   let rank: Rank;
   let testRender: TestRenderer.ReactTestRenderer;
 
   beforeEach(() => {
-    deckStore = new DeckStore();
     themeStore = new ThemeStore();
     suit = Suit.CLUB;
     rank = Rank.JACK;
 
     testRender = TestRenderer.create(
-      <Card
-        themeStore={themeStore}
-        deckStore={deckStore}
-        suit={suit}
-        rank={rank}
-      />,
+      <Card themeStore={themeStore} suit={suit} rank={rank} />,
     );
   });
 
   it('renders', () => {
     // @ts-ignore
     expect(testRender.toJSON().type).to.equal('div');
+  });
+});
+
+describe('number render', () => {
+  let themeStore: ThemeStore;
+  let suit: Suit;
+  let rank: Rank;
+  let testRender: TestRenderer.ReactTestRenderer;
+
+  beforeEach(() => {
+    themeStore = new ThemeStore();
+    suit = Suit.SPADE;
+    rank = Rank.FIVE;
+
+    testRender = TestRenderer.create(
+      <Card themeStore={themeStore} suit={suit} rank={rank} />,
+    );
+  });
+
+  it('displays number twice on card', () => {
+    const textNodes = testRender.root.findAllByType('text');
+    const numbers = textNodes.filter(node => node.children[0] === rank);
+    expect(numbers.length).to.equal(2);
   });
 });

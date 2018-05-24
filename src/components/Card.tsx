@@ -1,7 +1,7 @@
-import { observer, inject } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import * as React from 'react';
 import styled from 'styled-components';
-import { DeckStore, ThemeStore } from '../stores';
+import { ThemeStore } from '../stores';
 import { Rank, Suit } from '../typings';
 
 const SuitImages = {
@@ -14,15 +14,13 @@ const SuitImages = {
 interface CardProps {
   rank: Rank;
   suit: Suit;
-  deckStore: DeckStore;
-  themeStore: ThemeStore;
+  themeStore?: ThemeStore;
 }
 
 interface CardState {
   visible: boolean;
 }
 
-@inject('deckStore')
 @inject('themeStore')
 @observer
 export class Card extends React.Component<CardProps, CardState> {
@@ -80,7 +78,7 @@ export class Card extends React.Component<CardProps, CardState> {
           {this.props.rank} of
         </text>
         <text x="164" y="260" textAnchor="middle" fill={this.color}>
-          {this.props.suit.replace(/(?:^|\s)\S/g, a => a.toUpperCase()) + 's'}
+          {this.props.suit}
         </text>
       </>
     );

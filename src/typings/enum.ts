@@ -6,7 +6,7 @@ export enum Suit {
 }
 
 export enum Rank {
-  ACE = 'ace',
+  ACE = 'Ace',
   TWO = '2',
   THREE = '3',
   FOUR = '4',
@@ -16,7 +16,7 @@ export enum Rank {
   EIGHT = '8',
   NINE = '9',
   TEN = '10',
-  JACK = 'jack',
-  QUEEN = 'queen',
-  KING = 'king',
+  JACK = 'Jack',
+  QUEEN = 'Queen',
+  KING = 'King',
 }
