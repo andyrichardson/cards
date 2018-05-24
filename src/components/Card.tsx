@@ -5,10 +5,10 @@ import { ThemeStore } from '../stores';
 import { Rank, Suit } from '../typings';
 
 const SuitImages = {
-  club: require('../images/club.svg'),
-  diamond: require('../images/diamond.svg'),
-  heart: require('../images/heart.svg'),
-  spade: require('../images/spade.svg'),
+  Club: require('../images/club.svg'),
+  Diamond: require('../images/diamond.svg'),
+  Heart: require('../images/heart.svg'),
+  Spade: require('../images/spade.svg'),
 };
 
 interface CardProps {
@@ -78,7 +78,7 @@ export class Card extends React.Component<CardProps, CardState> {
           {this.props.rank} of
         </text>
         <text x="164" y="260" textAnchor="middle" fill={this.color}>
-          {this.props.suit}
+          {`${this.props.suit}s`}
         </text>
       </>
     );
