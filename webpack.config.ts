@@ -1,4 +1,6 @@
+import * as CleanWebpackPlugin from 'clean-webpack-plugin';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as ServiceWorkerPlugin from 'sw-precache-webpack-plugin';
 
 module.exports = {
   entry: './src/index.tsx',
@@ -29,8 +31,13 @@ module.exports = {
     path: `${__dirname}/dist`,
   },
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
+    }),
+    new ServiceWorkerPlugin({
+      cacheId: 'swcache',
+      filename: 'service-worker.js',
     }),
   ],
   resolve: {
