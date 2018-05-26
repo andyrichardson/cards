@@ -13,8 +13,8 @@
   "scripts": {
     "start": "serve -s dist -p 8080",
     "build": "webpack",
+    "dev": "webpack-dev-server",
     "test": "jest --config jest.config.json",
-    "eject": "react-scripts-ts eject",
     "lint": "tslint --project .",
     "check-formatting": "prettier-check **/*.ts **/*.tsx **/*.md"
   },

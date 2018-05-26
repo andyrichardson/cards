@@ -3,6 +3,9 @@ import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as ServiceWorkerPlugin from 'sw-precache-webpack-plugin';
 
 module.exports = {
+  devServer: {
+    port: 8080,
+  },
   entry: './src/index.tsx',
   mode: 'production',
   module: {
