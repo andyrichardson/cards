@@ -1,3 +1,5 @@
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+
 module.exports = {
   entry: './src/index.tsx',
   mode: 'production',
@@ -26,6 +28,11 @@ module.exports = {
     filename: 'bundle.js',
     path: `${__dirname}/dist`,
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+    }),
+  ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
