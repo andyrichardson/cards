@@ -1,5 +1,3 @@
-// import * as AwesomeTypescript from 'awesome-typescript-loader';
-
 module.exports = {
   entry: './src/index.tsx',
   mode: 'production',
@@ -11,8 +9,16 @@ module.exports = {
         use: ['awesome-typescript-loader'],
       },
       {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
         test: /\.(svg)$/,
-        use: ['file-loader'],
+        use: ['file-loader?name=images/[name].[ext]'],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf)$/,
+        use: ['file-loader?name=fonts/[name].[ext]'],
       },
     ],
   },

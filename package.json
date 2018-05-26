@@ -7,7 +7,8 @@
     "react-dom": "^16.3.2",
     "react-scripts-ts": "^2.16.0",
     "serve": "^6.5.8",
-    "styled-components": "^3.2.6"
+    "styled-components": "^3.2.6",
+    "typeface-roboto": "0.0.54"
   },
   "scripts": {
     "start": "serve -s dist",
@@ -27,6 +28,7 @@
     "@types/webpack": "^4.4.0",
     "awesome-typescript-loader": "^5.0.0",
     "chai": "^4.1.2",
+    "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.4",
@@ -35,6 +37,7 @@
     "prettier": "^1.12.1",
     "prettier-check": "^2.0.0",
     "react-test-renderer": "^16.3.2",
+    "style-loader": "^0.21.0",
     "ts-jest": "^22.4.6",
     "ts-node": "^6.0.5",
     "tslint": "^5.10.0",
