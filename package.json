@@ -6,11 +6,12 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts-ts": "^2.16.0",
+    "serve": "^6.5.8",
     "styled-components": "^3.2.6"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
+    "start": "serve -s dist",
+    "build": "webpack",
     "test": "jest --config jest.config.json",
     "eject": "react-scripts-ts eject",
     "lint": "tslint --project .",
